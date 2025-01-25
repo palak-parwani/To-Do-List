@@ -2,7 +2,7 @@
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 
-// Function to add a task when the "Add" button is clicked
+// Function to add a task when the "Add" button is clicked or Enter is pressed
 function addTask() {
     const taskValue = inputBox.value.trim(); // Trim whitespace from the input value
     if (taskValue === "") {
@@ -34,6 +34,13 @@ listContainer.addEventListener("click", function (e) {
         saveData(); // Save the updated task list to localStorage
     }
 }, false);
+
+// Event listener for the input box to detect the Enter key
+inputBox.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") { // Check if the pressed key is Enter
+        addTask(); // Call the addTask function
+    }
+});
 
 // Function to save the current list state to localStorage
 function saveData() {
