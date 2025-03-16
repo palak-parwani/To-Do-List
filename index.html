@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To Do List App</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -18,14 +21,11 @@
           />
         </div>
         <div class="row">
-          <input type="text" id="input-box" placeholder="Add Your Text" />
+          <input type="text" id="input-box" placeholder="Add Your Task" />
+          <input type="number" id="timer-input" placeholder="Set Timer (min)" min="1" />
           <button onclick="addTask()">Add</button>
         </div>
-        <ul id="list-container">
-            <!-- <li class="checked">Task 1</li>
-            <li>Task 2</li>
-            <li>Task 3</li> -->
-        </ul>
+        <ul id="list-container"></ul>
       </div>
     </div>
 
