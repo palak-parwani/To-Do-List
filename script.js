@@ -13,32 +13,43 @@ function addTask() {
         return;
     }
 
-    // Create a new list item
+    // Create list item
     let li = document.createElement("li");
-    li.innerHTML = `${taskValue}`;
 
-    // Create a timer display
+    // Create a span for task text
+    let taskSpan = document.createElement("span");
+    taskSpan.className = "task-text";
+    taskSpan.innerHTML = taskValue;
+    li.appendChild(taskSpan);
+
+    // Create a timer display (optional)
     if (timerValue !== "" && !isNaN(timerValue) && timerValue > 0) {
         let timerSpan = document.createElement("span");
         timerSpan.className = "timer";
-        let countdownTime = parseInt(timerValue) * 60; // Convert minutes to seconds
+        let countdownTime = parseInt(timerValue) * 60;
         timerSpan.innerHTML = formatTime(countdownTime);
         li.appendChild(timerSpan);
-
-        // Start the countdown
         startCountdown(timerSpan, countdownTime, taskValue);
     }
 
-    listContainer.appendChild(li);
-
     // Create a delete button
-    let span = document.createElement("span");
-    span.innerHTML = "\u00D7";
-    span.className = "delete";
-    li.appendChild(span);
+    let deleteSpan = document.createElement("span");
+    deleteSpan.innerHTML = "\u00D7"; // Cross icon
+    deleteSpan.className = "delete";
+    deleteSpan.onclick = function () {
+        li.remove();
+        saveData();
+    };
+    li.appendChild(deleteSpan);
 
+    // Append to list container
+    document.getElementById("list-container").appendChild(li);
+
+    // Clear input fields
     inputBox.value = "";
     timerInput.value = "";
+
+    // Save data
     saveData();
 }
 
@@ -81,9 +92,28 @@ function notifyUser(task) {
     }
 }
 
-// Event listener for deleting tasks
+// Add event listener for Enter key
+inputBox.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault(); // Prevent default form submission behavior
+        addTask();
+    }
+});
+
+// Also add event listener for Enter key on timer input
+timerInput.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault(); // Prevent default form submission behavior
+        addTask();
+    }
+});
+
 listContainer.addEventListener("click", function (e) {
-    if (e.target.classList.contains("delete")) {
+    if (e.target.tagName === "LI") {
+        e.target.classList.toggle("checked"); // Toggle checked class
+        e.target.classList.toggle("completed"); // Add completed class
+        saveData();
+    } else if (e.target.classList.contains("delete")) {
         e.target.parentElement.remove();
         saveData();
     }
