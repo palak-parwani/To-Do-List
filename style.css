@@ -12,7 +12,7 @@
 }
 .todo-app{
     width: 100%;
-    max-width: 540px;
+    max-width: 570px;
     background-color: white;
     margin: 100px auto 20px;
     padding: 40px 30px 70px;
@@ -48,6 +48,7 @@ input{
     background-color: transparent;
     padding: 10px;
     font-weight: 14px;
+    text-transform: capitalize;
 }
 button{
     border: 0;
@@ -64,6 +65,7 @@ ul li{
     font-size: 17px;
     padding: 12px 8px 12px 50px;
     position: relative;
+    text-transform: capitalize;
 }
 ul li::before{
     content: "";
@@ -88,14 +90,66 @@ ul li span{
     position: absolute;
     right: 0;
     top: 5px;
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     font-size: 22px;
     color: #555;
     line-height: 40px;
     text-align: center;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 ul li span:hover{
     background-color: #edeef0;
+}
+
+/* Timer Display */
+li .timer {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ff5945;
+    margin-left: 10px;
+    padding: 2px 0px;
+    background: #ffecec;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 41px;
+    width: 12%;
+    }
+
+/* Timer Expired Styling */
+li .timer.expired {
+    color: white;
+    background: #dc3545; /* Dark red for urgency */
+    font-weight: bold;
+    padding: 4px 10px;
+}
+
+/* Notification Message */
+.notification-message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #ff5945; /* Same as Add button color */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: none; /* Initially hidden */
+    font-size: 14px;
+    font-weight: bold;
+    animation: fadeInOut 3s ease-in-out;
+}
+
+/* Notification Fade Animation */
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(10px); }
+    20% { opacity: 1; transform: translateY(0px); }
+    80% { opacity: 1; transform: translateY(0px); }
+    100% { opacity: 0; transform: translateY(10px); }
 }
