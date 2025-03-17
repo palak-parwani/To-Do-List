@@ -2,14 +2,14 @@
 
 🚀 Live Demo: (https://palak-parwani.github.io/To-Do-List/)
 
-📌 Overview:
+📌 Overview: <br/>
 This To-Do List Web App is a simple and interactive task manager that helps users stay organized. It allows users to: <br/>
 ✅ Add tasks to the list <br/>
 ✅ Mark tasks as Done with a tick <br/>
 ✅ Delete tasks when no longer needed <br/>
 ✅ Set a timer for a task, receiving a notification when time runs out
 
-🎯 Features:
+🎯 Features: <br/>
 🔹 Add Task – Enter your task and add it to the list effortlessly <br/>
 🔹 Task Completion – Click the checkbox to mark the task as done <br/>
 🔹 Delete Task – Remove unwanted tasks with a single click <br/>
