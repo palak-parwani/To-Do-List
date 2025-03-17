@@ -5,9 +5,9 @@
 📌 Overview:
 
 This To-Do List Web App is a simple and interactive task manager that helps users stay organized. It allows users to: <br/>
-✅ Add tasks to the list
-✅ Mark tasks as Done with a tick
-✅ Delete tasks when no longer needed
+✅ Add tasks to the list <br/>
+✅ Mark tasks as Done with a tick <br/>
+✅ Delete tasks when no longer needed <br/>
 ✅ Set a timer for a task, receiving a notification when time runs out
 
 🎯 Features:
